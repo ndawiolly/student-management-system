@@ -1,0 +1,118 @@
+$subtle-grey: #f2f2f2;
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Roboto+Flex:opsz,wght@8..144,300&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,100&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Oswald";
+}
+
+@mixin mobile {
+    @media (max-width: 992.9px) {
+        @content;
+    }
+}
+
+.sidebar {
+    width: 350px;
+    height: 110vh;
+    transition: margin-left 0.45s ease-in-out;
+    background-color: #2b3467;
+
+    &.active {
+        margin-left: -350px;
+        @include mobile {
+            margin-left: 0;
+        }
+    }
+
+    @include mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        z-index: 99999;
+        margin-left: -350px;
+        width: 270px;
+    }
+    // drop down menu
+
+    ul {
+        .nav-item {
+            font-family: sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            color: white;
+
+            display: inline-block;
+            padding: 15px;
+            position: relative;
+            a {
+                text-decoration: none;
+                color: white;
+            }
+            .dropdown-menu {
+                li {
+                    a {
+                        color: #2b3467;
+                    }
+                    a:hover {
+                        color: #2b3467;
+                    }
+                }
+                li:hover {
+                    border-right: solid;
+                    border-color: #2b3467;
+                }
+            }
+        }
+    }
+}
+.main-content {
+    width: 100%;
+}
+
+#top-navbar {
+    .dropdown {
+        .dropdown-menu {
+            li {
+                a:hover {
+                    border-right: solid;
+                    border-color: #2b3467;
+                    color: #2b3467;
+                }
+                form {
+                    button:hover {
+                        border-right: solid;
+                        border-color: #2b3467;
+                        color: #2b3467;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#create-class {
+    margin-top: 50px;
+
+    .card {
+        form {
+            label {
+                color: #2b3467;
+                font-weight: bolder;
+                font-family: "Roboto";
+            }
+            .btn-group {
+                button {
+                    background-color: #2b3467;
+                    color: white;
+                    &:hover {
+                        background-color: #3e54ac;
+                    }
+                }
+            }
+        }
+    }
+}
