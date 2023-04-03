@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200&family=Roboto+Flex:opsz,wght@8..144,300&family=Roboto+Serif:ital,opsz,wght@0,8..144,400;1,8..144,100&display=swap");
-* {
+@impo * {
   padding: 0;
   margin: 0;
   font-family: "Oswald";
@@ -7,7 +7,7 @@
 
 .sidebar {
   width: 350px;
-  height: 110vh;
+  height: auto;
   transition: margin-left 0.45s ease-in-out;
   background-color: #2b3467;
 }
@@ -79,7 +79,7 @@
 }
 
 #create-class {
-  margin-top: 50px;
+  margin-top: 5px;
 }
 
 #create-class .card form label {
@@ -95,4 +95,19 @@
 
 #create-class .card form .btn-group button:hover {
   background-color: #3e54ac;
+}
+
+footer {
+  z-index: 999999999;
+}
+
+#app {
+  background: url(../../public/images/bg-2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#mybg .row #mycol .card {
+  background-color: rgba(255, 255, 255, 0.735);
 }

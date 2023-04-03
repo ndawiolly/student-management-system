@@ -1,0 +1,20 @@
+#student {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(../../public/images/bg-2.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#student #student_card {
+  height: 50vh;
+  background: rgba(255, 255, 255, 0.788);
+}
+
+#student #student_card i {
+  color: #e15e47;
+  font-size: 150%;
+}

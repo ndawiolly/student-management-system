@@ -21,74 +21,72 @@
                 <input class="form-control " type="search" placeholder="Search" aria-label="Search" style="height:30px;">
             </form>
         </div>
+        @if (session()->has('message'))
+            <div class="alert alert-success d-flex justify-content-between">
+                {{ session()->get('message') }}
+
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+        @endif
 
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col"># <i class="fas fa-sort-alpha-up"></i></th>
-                    <th scope="col">Class Name</th>
-                    <th scope="col">Class Name Numeric</th>
-                    <th scope="col">Section</th>
+                    <th scope="col">Subject Name</th>
+                    <th scope="col">Subject Code</th>
                     <th scope="col">Creation Date</th>
+                    <th scope="col">Update Date</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
-            <tbody class="table-group-divider ">
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                    <td>
-                        <a href="#"><i class="fas fa-edit"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@fat</td>
-                    <td>
-                        <a href="#"><i class="fas fa-edit"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>@twitter</td>
-                    <td>
-                        <a href="{{ route('edit_class') }}"><i class="fas fa-edit"></i></a>
-                    </td>
-                </tr>
-            </tbody>
+            {{-- <tbody class="table-group-divider ">
+                @forelse ($classes as $sub)
+                    <tr>
+                        <th scope="row">{{ $index++ }}</th>
+                        <td>{{ $sub->subject_name }}</td>
+                        <td>{{ $sub->subject_code }}</td>
+                        <td>{{ $sub->created_at }}</td>
+                        <td>{{ $sub->updated_at }}</td>
+                        <td>
+                            <div class="d-flex gap-2">
+
+                                <a href="{{ route('edit_sub', $sub->id) }}" onclick="return confirm('You are about to edit this record')" class="btn text-secondary"><i
+                                        class="fas fa-edit"></i></a>
+
+
+
+                                <form action="{{ route('delete subject', $sub->id) }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-transparent"
+                                        onclick="return confirm('You will loose this data permanently')"><i
+                                            class="fas fa-trash-alt text-danger"></i></button>
+                                </form>
+
+
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                @endforelse
+
+            </tbody> --}}
             <thead class="table-group-divider">
                 <tr>
                     <th scope="col"># <i class="fas fa-sort-alpha-up"></i></th>
-                    <th scope="col">Class Name</th>
-                    <th scope="col">Class Name Numeric</th>
-                    <th scope="col">Section</th>
+                    <th scope="col">Subject Name</th>
+                    <th scope="col">Subject Code</th>
                     <th scope="col">Creation Date</th>
+                    <th scope="col">Update Date</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
         </table>
-
-        <div class="bottom d-flex justify-content-between  p-2">
-            <div class="right">
-                <p>showing 1 to 8 of 8 enteries</p>
-            </div>
-
-            <div class="left">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-primary">Previous</button>
-                    <button type="button" class="btn">1</button>
-                    <button type="button" class="btn btn-primary">Next</button>
-                  </div>
-            </div>
-        </div>
+        {{-- <div class="">
+            {{ $msub->links('pagination::bootstrap-5') }}
+        </div> --}}
 
 
 

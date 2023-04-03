@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,25 +25,33 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(
-    [
-        'resources/scss/style.scss',
-        'resources/js/app.js',
-        'resources/js/script.js',
-        'resources/js/navdrop.js'
-    ])
+    @vite(['resources/scss/style.scss', 'resources/js/app.js', 'resources/js/script.js', 'resources/js/navdrop.js'])
 </head>
-<body>
-    <div id="app1">
-        <div class="d-flex align-items-start">
-            @include('partials.sidebar')
-            <main class="main-content">
-                @include('partials.adminnavbar')
-                @yield('content')
-            </main>
 
+<body>
+
+    <div class="container-fluid" id="student">
+        <div class="card p-2 w-50 fw-bolder fs-4 shadow" id="student_card">
+            Congratulations!!! You have successfully registered to be a GS Student for the 2022/2023 Academic session.
+            You are required to wait while your details are being inspected for admission approval.
+
+            You will be notified through the email you registered with.<br>
+            Thanks <i class="fas fa-smile mx-auto"></i>
+            <div class="py-3 d-flex justify-content-between">
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button class="btn btn-success">
+                        Awaiting Admission
+                    </button>
+                </form>
+
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Exit</button>
+                </form>
+            </div>
         </div>
-        {{-- @include('partials.footer') --}}
     </div>
 </body>
+
 </html>

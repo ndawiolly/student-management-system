@@ -13,7 +13,7 @@
     <div class="p-3" id="list-tems">
 
         <div class="d-flex gap-4">
-            <p><a href="{{ route("admin_dashboard") }}" class="nav-link ">Dashboard</a> </p>
+            <p><a href="{{ route('admin_dashboard') }}" class="nav-link ">Dashboard</a> </p>
             <h5> >>> MAIN SECTORS</h5>
         </div>
 
@@ -45,31 +45,41 @@
                         class="fas fa-folder px-3"></i> Subjects <i class="fas fa-angle-down float-end"></i></a>
                 <ul class="dropdown-menu w-100">
                     <li class="dropdown-item ">
-                        <a href="{{ route('create_sub') }}"><i class="fas fa-folder-plus"></i> Create Subject</a>
+                        <a href="{{ route('subject') }}"><i class="fas fa-folder-plus"></i> Create Subject</a>
                     </li>
                     <li class="dropdown-item">
                         <a href="{{ route('manage_sub') }}"><i class="fas fa-folder-plus"></i> Manage Subject</a>
                     </li>
                     <li class="dropdown-item">
-                        <a href="#"><i class="fas fa-folder-plus"></i> Add Subject Combination</a>
+                        <a href="{{ route('sub_combo') }}"><i class="fas fa-folder-plus"></i> Add Subject
+                            Combination</a>
                     </li>
                     <li class="dropdown-item">
-                        <a href="#"><i class="fas fa-folder-plus"></i> Manage Subject Combination</a>
+                        <a href="{{ route('sub_combo_mang') }}"><i class="fas fa-folder-plus"></i> Manage Subject
+                            Combination</a>
                     </li>
                 </ul>
             </li>
 
             <li class="nav-item">
                 <a href="#" class="nav-link" data-bs-toggle="dropdown" aria-expanded="false"><i
-                        class="fas fa-users px-3"></i> Student<i class="fas fa-angle-down float-end"></i></a>
+                        class="fas fa-users px-3"></i> Subject Combination<i
+                        class="fas fa-angle-down float-end"></i></a>
                 <ul class="dropdown-menu w-100">
-                    <li class="dropdown-item ">
+                    {{-- <li class="dropdown-item ">
                         <a href="#"><i class="fas fa-folder-plus"></i> Add Student</a>
-                    </li>
+                    </li> --}}
                     <li class="dropdown-item">
-                        <a href=""><i class="fas fa-folder-plus"></i> Manage Student</a>
+                        <a href="{{ route('sub_combine') }}"><i class="fas fa-folder-plus"></i> Manage SC</a>
                     </li>
                 </ul>
+            </li>
+
+            {{-- Registered Students --------------------------------------- --}}
+            <li class="nav-item">
+                <a href="{{ route('students_record') }}" class="nav-link">
+                    <i class="fas fa-user-graduate px-3 "></i> Registered Students
+                </a>
             </li>
 
             <li class="nav-item">
@@ -77,11 +87,25 @@
                         class="fas fa-exclamation-circle px-3"></i> Result<i class="fas fa-angle-down float-end"></i>
                 </a>
                 <ul class="dropdown-menu w-100">
-                    <li class="dropdown-item">
-                        <a href="#"><i class="fas fa-folder-plus"></i> Add Result</a>
+                    <li class="dropdown-item nav-item">
+                        <a href="#" data-bs-toggle="dropdown-menu-result" name= "nav-link" aria-expanded="false"><i
+                                class="fas fa-folder-plus"></i> Add Result</a>
+
+                        <ul class="dropdown-menu-result w-100">
+                            <li class="dropdown-item">
+                                <a href="{{ route('prepare result') }}">SS 1</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="">SS 2</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="">SS 3</a>
+                            </li>
+                        </ul>
+
                     </li>
                     <li class="dropdown-item">
-                        <a href=""><i class="fas fa-folder-plus"></i> Manage Result</a>
+                        <a href="#"><i class="fas fa-folder-plus"></i> Manage Result</a>
                     </li>
                 </ul>
             </li>
@@ -94,7 +118,7 @@
                         <a href="#"><i class="fas fa-folder-plus"></i> Add Notice</a>
                     </li>
                     <li class="dropdown-item">
-                        <a href=""><i class="fas fa-folder-plus"></i> Manage Notice</a>
+                        <a href="#"><i class="fas fa-folder-plus"></i> Manage Notice</a>
                     </li>
                 </ul>
             </li>
